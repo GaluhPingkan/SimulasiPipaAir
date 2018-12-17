@@ -56,14 +56,26 @@
                     KM6_AirKeluar = (panjang / 16) * 6;
                     penghubungL = 6;
                     penghubungT = 10;
-                    
+                    var y = [AirMasuk_KM3, KM3_KM2, KM2_KM1, KM1_KM4, KM4_KM5, KM5_KM6, KM4_KM7, KM7_KM8, KM8_KM9,KM9_AirKeluar, KM6_AirKeluar];
+                   
                     total = AirMasuk_KM3 + KM3_KM2 + KM2_KM1 + KM1_KM4 + KM4_KM5 + KM5_KM6 + KM4_KM7 + KM7_KM8 + KM8_KM9 + KM9_AirKeluar + KM6_AirKeluar;
+                      var jum_batangPipa = Math.ceil(total / 4);
                     if (isitext.value === "") {
                         alert("Inputan harus angka dan tidak boleh kosong..");
                     } else if (isitext.value <= 0) {
                         alert("inputan anda terlalu kecil");
                     } else {
-                      document.getElementById('inidia').innerHTML = "panjang = " + panjang  + " lebar = " + lebar  + " total panjang pipa= " + Math.round(total);
+                         var jum = 0;
+                        
+                        for (var i = 0; i < y.length; i++) {
+                            var c = 0;
+                            if (y[i] > 4) {
+                                c = y[i] / 4;
+                                jum = jum + Math.floor(c);
+                            }
+                        }
+                      document.getElementById('inidia').innerHTML = "panjang = " + panjang + " meter,  lebar = " + lebar + " meter,  total panjang pipa = " + total + " meter,  \n\
+            Jumlah batang pipa = " + jum_batangPipa + " buah, Jumlah Penghubung I = " + jum + " buah,  Jumlah Penghubung T = " + penghubungT + " buah,  jumlah penghubung L = " + penghubungL ;
 
 
                     }
