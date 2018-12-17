@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <title>Halaman Tampilan</title>
+    </head>
+    <body>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2>Masukkan panjang (Meter): </h2>
+            </div>
+        </div>
+        <div class="container" id="inidia">
+            <form method="post">
+                <div class="form-group">
+                    <label>Panjang :</label>
+                    <input type="number" class="form-control" id='mytext' placeholder="">
+                </div>
+
+                <input type='button' onclick='validasi()' id='klik'value='OK' />
+                <!--a href="HalamanOutput.html" class="link-button">OK</a>-->
+            </form> 
+            <script>
+                function validasi() {
+                    var a, x, panjang, lebar, AirMasuk_KM5, KM5_KM4, KM4_KM3, KM3_KM1, KM1_KM2, KM2_AirKeluar, penghubungL, penghubungT, penghubungPLUS, total;
+                    var isitext = document.getElementById('mytext');
+                   var a, x, panjang, lebar, AirMasuk_KM5, KM5_KM4,a = document.getElementById('mytext');
+                    x = isitext.value;
+                    panjang = 24 * (x / 24);
+                    lebar = (x / 6) * 4;
+                    AirMasuk_KM5 = (lebar / 16) * 1;
+                    KM5_KM4 = (lebar / 16) * 11;
+                    KM4_KM3 = (lebar / 16) * 1;
+                    KM3_KM1 = panjang;
+                    KM1_KM2 = (lebar / 16) * 1;
+                    KM2_AirKeluar = (lebar / 16) * 2;
+                    penghubungL = 5;
+                    penghubungT = 2;
+                    penghubungPLUS = 2;
+                    total = AirMasuk_KM5 + KM5_KM4 + KM4_KM3 + KM3_KM1 + KM1_KM2 + KM2_AirKeluar;
+                    if (isitext.value === "") {
+                        alert("Inputan harus angka dan tidak boleh kosong..");
+                    } else if (isitext.value <= 0) {
+                        alert("inputan anda terlalu kecil");
+                    } else {
+                      document.getElementById('inidia').innerHTML = "panjang = " + panjang  + " lebar = " + lebar  + " total panjang pipa= " + Math.round(total);
+
+
+                    }
+                }
+
+                
+            </script>
+
+
+       
+        </div>
+    </body>
+</html>
