@@ -39,7 +39,7 @@
                 function validasi() {
                     var a, x, panjang, lebar, AirMasuk_KM5, KM5_KM4, KM4_KM3, KM3_KM1, KM1_KM2, KM2_AirKeluar, penghubungL, penghubungT, penghubungPLUS, total;
                     var isitext = document.getElementById('mytext');
-                   var a, x, panjang, lebar, AirMasuk_KM5, KM5_KM4,a = document.getElementById('mytext');
+                    var a, x, panjang, lebar, AirMasuk_KM5, KM5_KM4, a = document.getElementById('mytext');
                     x = isitext.value;
                     panjang = 24 * (x / 24);
                     lebar = (x / 6) * 4;
@@ -52,23 +52,36 @@
                     penghubungL = 5;
                     penghubungT = 2;
                     penghubungPLUS = 2;
+                    var y = [AirMasuk_KM5, KM5_KM4, KM4_KM3, KM3_KM1, KM1_KM2, KM2_AirKeluar];
+
                     total = AirMasuk_KM5 + KM5_KM4 + KM4_KM3 + KM3_KM1 + KM1_KM2 + KM2_AirKeluar;
+                    var jum_batangPipa = Math.ceil(total / 4);
                     if (isitext.value === "") {
                         alert("Inputan harus angka dan tidak boleh kosong..");
                     } else if (isitext.value <= 0) {
                         alert("inputan anda terlalu kecil");
                     } else {
-                      document.getElementById('inidia').innerHTML = "panjang = " + panjang  + " lebar = " + lebar  + " total panjang pipa= " + Math.round(total);
+                        var jum = 0;
+
+                        for (var i = 0; i < y.length; i++) {
+                            var c = 0;
+                            if (y[i] > 4) {
+                                c = y[i] / 4;
+                                jum = jum + Math.floor(c);
+                            }
+                        }
+                       document.getElementById('inidia').innerHTML = "panjang = " + panjang + " meter,  lebar = " + lebar + " meter,  total panjang pipa = " + total + " meter,  \n\
+            Jumlah batang pipa = " + jum_batangPipa + " buah, Jumlah Penghubung I = " + jum + " buah,  Jumlah Penghubung PLUS = " + penghubungPLUS + " buah, Jumlah Penghubung T = " + penghubungT + " buah,  jumlah penghubung L = " + penghubungL ;
 
 
                     }
                 }
 
-                
+
             </script>
 
 
-       
+
         </div>
     </body>
 </html>
