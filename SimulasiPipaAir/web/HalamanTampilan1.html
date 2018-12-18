@@ -53,7 +53,7 @@
                     penghubungT = 2;
                     penghubungPLUS = 2;
                     var y = [AirMasuk_KM5, KM5_KM4, KM4_KM3, KM3_KM1, KM1_KM2, KM2_AirKeluar];
-
+var jalur = "Air Masuk-Kamar Mandi 5-Kamar Mandi 4-Kamar Mandi 3-Kamar Mandi 1-Kamar Mandi 2-Air Keluar";
                     total = AirMasuk_KM5 + KM5_KM4 + KM4_KM3 + KM3_KM1 + KM1_KM2 + KM2_AirKeluar;
                     var jum_batangPipa = Math.ceil(total / 4);
                     if (isitext.value === "") {
@@ -70,7 +70,7 @@
                                 jum = jum + Math.floor(c);
                             }
                         }
-                       document.getElementById('inidia').innerHTML = "panjang = " + panjang + " meter,  lebar = " + lebar + " meter,  total panjang pipa = " + total + " meter,  \n\
+                       document.getElementById('inidia').innerHTML = "Jalur Pipa : " + jalur + " panjang = " + panjang + " meter,  lebar = " + lebar + " meter,  total panjang pipa = " + total + " meter,  \n\
             Jumlah batang pipa = " + jum_batangPipa + " buah, Jumlah Penghubung I = " + jum + " buah,  Jumlah Penghubung PLUS = " + penghubungPLUS + " buah, Jumlah Penghubung T = " + penghubungT + " buah,  jumlah penghubung L = " + penghubungL ;
 
 
